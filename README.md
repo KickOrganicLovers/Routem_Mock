@@ -1,36 +1,23 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+@next-project-basis 
 
-## Getting Started
+Next.jsを用いるプロジェクトのbasis
+基本的なnextの開発環境と、各種APIを起動するためのdockerの設定ファイルが含まれる。
+それぞれの環境での起動には.env系ファイルが必要であるため、提供するリンクからこれをダウンロードしルートディレクトリに配置する。
 
-First, run the development server:
+環境変数について（※今後変更する可能性あり）
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+用いる.env系のファイルによって変更する。例としてnextをローカルで起動するデフォルトの開発環境では.env、nextをdocker上で起動する場合は.env.stage、本番環境では.env.productionをもちいる。
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+プロジェクト内での環境変数の取得関数はlib/configディレクトリ内のファイルclient.ts、server.tsに用いる場所によって定義し、そこでNODE_ENVによる変数の切り替えを定義する。
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+例:S3URLの取得
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+const getS3URL = () => {
+    return process.env.s3URL
+}
 
-## Learn More
+docker-compose.ymlファイルで読み込む.env系ファイルを切り替える。
 
-To learn more about Next.js, take a look at the following resources:
+また、クライアントサイドで用いる変数はこの命名規則に加えて最前部にNEXT_PUBLICが付く。
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+例:NEXT_PUBLIC_DEV_S3URL
