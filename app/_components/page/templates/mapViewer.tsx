@@ -11,7 +11,7 @@ export default function MapViewer() {
 
     return (
         <div className={'w-full max-w-[1600px] rounded-2xl h-fit overflow-hidden relative'}>
-            <div className={'w-full h-[600px] flex flex-row'}>
+            <div className={'w-full h-[600px] flex flex-row border-b-1 border-grass/20'}>
                 {/*まだマップのシークレットがないので一旦コメントアウトし、ダミーとして画像を表示*/}
                 {/*<Map*/}
                 {/*    initialViewState={{*/}

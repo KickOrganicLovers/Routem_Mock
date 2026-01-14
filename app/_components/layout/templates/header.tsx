@@ -12,7 +12,7 @@ export default function Header () {
     const headerRef = useHeaderHeight()
 
     return (
-        <motion.header className={`block sticky top-0 w-full bg-background-1 box-border`}
+        <motion.header className={`block sticky top-0 w-full bg-background-1 box-border z-100`}
                        ref={headerRef}
                        animate={{y: scrollDirection === 'up' ? 0 : -50, height: scrollDirection === 'up' ? 60 : 0}}
                        transition={{duration: 0.2, ease: 'easeInOut'}}

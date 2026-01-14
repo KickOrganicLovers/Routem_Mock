@@ -2,12 +2,12 @@ import RouteCard, { RouteCardProps } from '@/app/_components/common/templates/ro
 
 // Simple mock data for route cards (replace with API integration as needed)
 export const mockRoutes: RouteCardProps[] = [
-  { title: 'Kyoto Old Town Walk', user: 'taro', likes: 128, category: 'History', thumbnailSrc: '/devImages/Kyoto.jpg' },
-  { title: 'Okinawa Beach Hopping', user: 'hanako', likes: 256, category: 'Beach', thumbnailSrc: '/devImages/Okinawa.jpg' },
-  { title: 'Hokkaido Food Trip', user: 'satoshi', likes: 93, category: 'Food', thumbnailSrc: '/devImages/Hokkaido.jpg' },
-  { title: 'Tokyo Night Lights', user: 'emi', likes: 174, category: 'City', thumbnailSrc: '/devImages/Tokyo.jpg' },
-  { title: 'Nara Temple Circuit', user: 'ken', likes: 67, category: 'Culture', thumbnailSrc: '/devImages/Nara.jpg' },
-  { title: 'Mount Fuji Scenic Drive', user: 'yuki', likes: 201, category: 'Nature', thumbnailSrc: '/devImages/Fuji.jpg' },
+  { title: 'Kyoto Old Town Walk', user: 'taro', likes: 128, category: 'History', thumbnailSrc: '/mockImages/Kyoto.jpg' },
+  { title: 'Okinawa Beach Hopping', user: 'hanako', likes: 256, category: 'Beach', thumbnailSrc: '/mockImages/Okinawa.jpg' },
+  { title: 'Hokkaido Food Trip', user: 'satoshi', likes: 93, category: 'Food', thumbnailSrc: '/mockImages/Hokkaido.jpg' },
+  { title: 'Tokyo Night Lights', user: 'emi', likes: 174, category: 'City', thumbnailSrc: '/mockImages/Tokyo.jpg' },
+  { title: 'Nara Temple Circuit', user: 'ken', likes: 67, category: 'Culture', thumbnailSrc: '/mockImages/Nara.jpg' },
+  { title: 'Mount Fuji Scenic Drive', user: 'yuki', likes: 201, category: 'Nature', thumbnailSrc: '/mockImages/Fuji.jpg' },
 ];
 
 type RouteListProps = {
