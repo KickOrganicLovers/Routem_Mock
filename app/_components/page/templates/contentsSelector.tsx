@@ -4,9 +4,10 @@ import {headerHeightAtom} from "@/lib/client/atoms";
 import {useAtomValue} from "jotai";
 import { HiMap, HiSparkles, HiFlag, HiClock, HiFire } from "react-icons/hi2";
 import {selectedType} from "@/app/_components/page/clientRoot";
+import {HiHome} from "react-icons/hi";
 
 const SELECTOR_ITEMS = [
-    { label: 'Map', icon: HiMap, selected: 'map'},
+    { label: 'Home', icon: HiHome, selected: 'home'},
     { label: 'Activity', icon: HiSparkles, selected: 'activity' },
     { label: 'Interests', icon: HiFlag, selected: 'interests' },
     { label: 'Recent', icon: HiClock, selected: 'recent' },

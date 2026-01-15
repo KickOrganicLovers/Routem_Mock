@@ -5,6 +5,8 @@ import Header from "@/app/_components/layout/templates/header";
 import ScrollDetector from "@/app/_components/layout/templates/scrollDetector";
 import Main from "@/app/_components/layout/templates/main";
 
+//uxo
+
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
