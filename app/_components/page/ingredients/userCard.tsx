@@ -37,7 +37,7 @@ export function UserCard({ user, rank, metric, onClick }: UserCardProps) {
         {/* Top section: profile background image only */}
         <div className="relative h-32">
           <img
-            src={user.profileBackgroundImage || "/mockImages/userProfile.jpg"}
+            src={user.profileBackgroundImage || "/Rootem_Mock/mockImages/userProfile.jpg"}
             alt="user header background"
             className="absolute inset-0 w-full h-full object-cover"
           />
@@ -46,7 +46,7 @@ export function UserCard({ user, rank, metric, onClick }: UserCardProps) {
         {/* Middle section: icon, rank, name, metric */}
         <div className=" p-3 flex items-center gap-3">
           <img
-            src={user.profileImage || "/mockImages/userIcon_1.jpg"}
+            src={user.profileImage || "/Rootem_Mock/mockImages/userIcon_1.jpg"}
             alt={`${user.name} icon`}
             className="w-11 h-11 rounded-full object-cover bg-accent-0/10"
           />
