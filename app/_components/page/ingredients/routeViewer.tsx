@@ -29,7 +29,7 @@ export default function RouteViewer(props: Props) {
                 {route.title}
               </h2>
               <p className="text-foreground-1/60 mt-1">
-                by @{route.user} • {route.category}
+                by @{route.user.name} • {route.category}
               </p>
             </div>
 
@@ -51,7 +51,7 @@ export default function RouteViewer(props: Props) {
               <h3 className="text-lg font-semibold text-foreground-1">Description</h3>
               <p className="text-foreground-1/80 leading-relaxed">
                 This is a beautiful route through {route.category} focused spots.
-                Enjoy the amazing views and local culture curated by @{route.user}.
+                Enjoy the amazing views and local culture curated by @{route.user.name}.
               </p>
             </div>
 

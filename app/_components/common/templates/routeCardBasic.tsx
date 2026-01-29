@@ -15,7 +15,7 @@ export default function RouteCardBasic(props: Props) {
                 <img src={props.route.thumbnailImageSrc} alt={props.route.title} className={'w-full h-full object-cover group-hover:scale-105 duration-300 ease-out'}/>
                 <div className={'absolute left-0 bottom-0 w-full p-3 flex flex-col items-end gap-3 z-15'}>
                     <h2 className={'text-3xl font-bold text-white text-right'}>{props.route.title}</h2>
-                    <p className="text-sm text-gray-300">by @{props.route.user} ・ {props.route.category}</p>
+                    <p className="text-sm text-gray-300">by @{props.route.user.name} ・ {props.route.category}</p>
                 </div>
             </div>
             <div className={'w-1/2 h-full min-w-[120px] flex flex-col gap-3 p-5'}>

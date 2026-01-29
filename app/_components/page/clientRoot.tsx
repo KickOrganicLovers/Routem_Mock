@@ -20,16 +20,6 @@ export type selectedType = 'home' | 'photos' | 'interests' | 'recent' | 'trendin
 
 export default function ClientRoot() {
 
-    // Mock routes for demo (this week)
-    const mockTopRoutes: Route[] = [
-        { id: 'r1', title: 'Kyoto Old Town Walk', user: 'taro', likesThisWeek: 1280, viewsThisWeek: 18200, category: 'History', thumbnailImageSrc: '/mockImages/Kyoto.jpg' },
-        { id: 'r2', title: 'Okinawa Beach Hopping', user: 'hanako', likesThisWeek: 990, viewsThisWeek: 15420, category: 'Beach', thumbnailImageSrc: '/mockImages/Okinawa.jpg' },
-        { id: 'r3', title: 'Hokkaido Food Trip', user: 'satoshi', likesThisWeek: 1570, viewsThisWeek: 21030, category: 'Food', thumbnailImageSrc: '/mockImages/Hokkaido.jpg' },
-        { id: 'r4', title: 'Tokyo Night Lights', user: 'emi', likesThisWeek: 870, viewsThisWeek: 16800, category: 'City', thumbnailImageSrc: '/mockImages/Tokyo.jpg' },
-        { id: 'r5', title: 'Nara Temple Circuit', user: 'ken', likesThisWeek: 1430, viewsThisWeek: 19990, category: 'Culture', thumbnailImageSrc: '/mockImages/Nara.jpg' },
-        { id: 'r6', title: 'Mount Fuji Scenic Drive', user: 'yuki', likesThisWeek: 760, viewsThisWeek: 14550, category: 'Nature', thumbnailImageSrc: '/mockImages/Fuji.jpg' },
-    ]
-
     // Mock users for demo (this week)
     const mockUsers: User[] = [
         { id: 'u1', name: 'Aki Tanaka', likesThisWeek: 1240, viewsThisWeek: 28120, location: 'Tokyo, JP', bio: 'City explorer and coffee lover.', profileImage: '/mockImages/userIcon_1.jpg', profileBackgroundImage: '/mockImages/Nara.jpg' },
@@ -39,6 +29,17 @@ export default function ClientRoot() {
         { id: 'u5', name: 'Hana Suzuki', likesThisWeek: 1430, viewsThisWeek: 29990, location: 'Fukuoka, JP', bio: 'Weekend cyclist and bakery map maker from Japan. And Ive Lived in French since last year. Its great and I love here.', profileImage: '/mockImages/userIcon_1.jpg', profileBackgroundImage: '/mockImages/Kyoto.jpg' },
         { id: 'u6', name: 'Ren Nakamura', likesThisWeek: 760, viewsThisWeek: 14550, location: 'Nagoya, JP', bio: 'Techie who loves riverfront jogs.', profileImage: '/mockImages/userIcon_1.jpg', profileBackgroundImage: '/mockImages/Hokkaido.jpg' },
         { id: 'u7', name: 'Sara Ito', likesThisWeek: 1110, viewsThisWeek: 25040, location: 'Nara, JP', bio: 'Nature walks and deer lover in Nara.', profileImage: '/mockImages/userIcon_1.jpg', profileBackgroundImage: '/mockImages/Hokkaido.jpg' },
+    ]
+
+
+    // Mock routes for demo (this week)
+    const mockTopRoutes: Route[] = [
+        { id: 'r1', title: 'Kyoto Old Town Walk', user: mockUsers[0], likesThisWeek: 1280, viewsThisWeek: 18200, category: 'History', thumbnailImageSrc: '/mockImages/Kyoto.jpg' },
+        { id: 'r2', title: 'Okinawa Beach Hopping', user: mockUsers[1], likesThisWeek: 990, viewsThisWeek: 15420, category: 'Beach', thumbnailImageSrc: '/mockImages/Okinawa.jpg' },
+        { id: 'r3', title: 'Hokkaido Food Trip', user: mockUsers[2], likesThisWeek: 1570, viewsThisWeek: 21030, category: 'Food', thumbnailImageSrc: '/mockImages/Hokkaido.jpg' },
+        { id: 'r4', title: 'Tokyo Night Lights', user: mockUsers[3], likesThisWeek: 870, viewsThisWeek: 16800, category: 'City', thumbnailImageSrc: '/mockImages/Tokyo.jpg' },
+        { id: 'r5', title: 'Nara Temple Circuit', user: mockUsers[4], likesThisWeek: 1430, viewsThisWeek: 19990, category: 'Culture', thumbnailImageSrc: '/mockImages/Nara.jpg' },
+        { id: 'r6', title: 'Mount Fuji Scenic Drive', user: mockUsers[5], likesThisWeek: 760, viewsThisWeek: 14550, category: 'Nature', thumbnailImageSrc: '/mockImages/Fuji.jpg' },
     ]
 
     const [selected, setSelected] = useState<selectedType>('home')
@@ -53,7 +54,7 @@ export default function ClientRoot() {
                             <MapViewerOnMobile routes={mockTopRoutes}/>
                             <TopRoutesList routes={mockTopRoutes} />
                             <TopUsersList users={mockUsers}/>
-                            <RecommendedRoutesList/>
+                            <RecommendedRoutesList routes={mockTopRoutes}/>
                         </div>
                     )
                     case 'photos': return (
@@ -72,7 +73,7 @@ export default function ClientRoot() {
                                         <IoIosArrowForward className={'text-xl'}/>
                                     </div>
                                 </div>
-                                <RouteListBasic/>
+                                <RouteListBasic routes={mockTopRoutes}/>
                             </div>
                             <div className={'w-full flex flex-col gap-2'}>
                                 <div className={'py-4 flex flex-row justify-between items-center'}>
@@ -85,7 +86,7 @@ export default function ClientRoot() {
                                         <IoIosArrowForward className={'text-xl'}/>
                                     </div>
                                 </div>
-                                <RouteListBasic/>
+                                <RouteListBasic routes={mockTopRoutes}/>
                             </div>
                             <div className={'w-full flex flex-col gap-2'}>
                                 <div className={'py-4 flex flex-row justify-between items-center'}>
@@ -98,7 +99,7 @@ export default function ClientRoot() {
                                         <IoIosArrowForward className={'text-xl'}/>
                                     </div>
                                 </div>
-                                <RouteListBasic/>
+                                <RouteListBasic routes={mockTopRoutes}/>
                             </div>
                             <div className={'w-full flex flex-col gap-2'}>
                                 <div className={'py-4 flex flex-row justify-between items-center'}>
@@ -111,7 +112,7 @@ export default function ClientRoot() {
                                         <IoIosArrowForward className={'text-xl'}/>
                                     </div>
                                 </div>
-                                <RouteListBasic/>
+                                <RouteListBasic routes={mockTopRoutes}/>
                             </div>
                             <div className={'w-full flex flex-col gap-2'}>
                                 <div className={'py-4 flex flex-row justify-between items-center'}>
@@ -124,7 +125,7 @@ export default function ClientRoot() {
                                         <IoIosArrowForward className={'text-xl'}/>
                                     </div>
                                 </div>
-                                <RouteListBasic/>
+                                <RouteListBasic routes={mockTopRoutes}/>
                             </div>
                         </div>
                     )

@@ -10,7 +10,7 @@ export default function PhotoContainer(props: { test: number }) {
 
     return (
         <div
-            className="group relative w-full overflow-hidden rounded-xl transition-shadow duration-300 hover:shadow-xl">
+            className="group relative w-full overflow-hidden transition-shadow duration-300 hover:shadow-xl">
             {/* 画像 */}
             <img
                 src={

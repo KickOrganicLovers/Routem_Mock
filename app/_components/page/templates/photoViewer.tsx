@@ -13,8 +13,8 @@ export default function PhotoViewer(props: {}) {
     return (
         <Masonry
             breakpointCols={breakpoints}
-            className="flex gap-2"
-            columnClassName="flex flex-col gap-2"
+            className="flex md:gap-2 gap-1"
+            columnClassName="flex flex-col md:gap-2 gap-1"
         >
             {mockArray.map((_, i) => (
                 <PhotoContainer key={i} test={Math.floor(Math.random() * 3)}/>

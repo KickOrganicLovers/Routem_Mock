@@ -1,7 +1,7 @@
 export type Route = {
     id: string
     title: string
-    user: string
+    user: User
     likesThisWeek: number
     viewsThisWeek?: number
     category: string

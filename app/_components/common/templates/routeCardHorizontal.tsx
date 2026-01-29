@@ -50,7 +50,7 @@ export default function RouteCardHorizontal(props: Props){
               props.isFocused ? 'text-white/90' : 'text-foreground-1/70'
             }`}
           >
-            <span className="truncate">@{props.route.user}</span>
+            <span className="truncate">@{props.route.user.name}</span>
             <span
               className={`transition-colors duration-300 ${
                 props.isFocused ? 'text-white/40' : 'text-foreground-1/30'

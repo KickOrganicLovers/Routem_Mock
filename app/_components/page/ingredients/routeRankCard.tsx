@@ -45,7 +45,7 @@ export default function RouteRankCard(props: Props) {
 
         {/* Bottom section: meta info (author & category) */}
         <div className="flex-1 bg-background-1 p-3">
-          <p className="text-xs text-foreground-1 truncate">@{props.route.user} ・ {props.route.category}</p>
+          <p className="text-xs text-foreground-1 truncate">@{props.route.user.name} ・ {props.route.category}</p>
         </div>
       </div>
     </button>
