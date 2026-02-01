@@ -23,7 +23,7 @@ export default function ContentsSelector(props: Props) {
     const headerHeight = useAtomValue(headerHeightAtom)
 
     return (
-        <div className={'w-full h-14 sticky z-40 bg-background-1 flex items-center justify-start md:justify-center gap-2 md:gap-8 px-4 border-b border-grass/20 overflow-x-auto no-scrollbar'} style={{ top: `${headerHeight}px` }}>
+        <div className={'w-[100svw] h-14 sticky z-40 bg-background-1 flex items-center justify-start md:justify-center gap-2 md:gap-8 px-4 border-b border-grass/20 overflow-x-auto no-scrollbar'} style={{ top: `${headerHeight}px` }}>
             {SELECTOR_ITEMS.map((item) => (
                 <button
                     key={item.label}
