@@ -16,6 +16,8 @@
     "@emotion/styled": "^11.11.5",
     "@mui/material": "^6.1.0",
     "@prisma/client": "^6.19.1",
+    "@supabase/ssr": "^0.8.0",
+    "@supabase/supabase-js": "^2.93.3",
     "framer-motion": "^12.26.1",
     "jotai": "^2.16.1",
     "mapbox-gl": "^3.17.0",
