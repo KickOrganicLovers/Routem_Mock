@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import {FaGoogle} from "react-icons/fa";
 import {useState} from "react";
+import Link from "next/link";
 
 export default function LoginCard() {
   const [email, setEmail] = useState("");
@@ -28,7 +29,9 @@ export default function LoginCard() {
             <h1 className={'text-8xl text-foreground-0 leading-snug text-center font-bold'}>Why not record <br /> your great voyage here?</h1>
             <div className={'flex flex-col gap-4 items-center'}>
                 <h3 className={'w-fit text-foreground-0/60 font-bold text-2xl'}>Don't Have Account?</h3>
-                <h3 className={'w-fit text-foreground-0 text-xl pb-1 px-2 border-b-2 border-foreground-0'}>Create Account →</h3>
+                <Link href="/signup">
+                    <h3 className={'w-fit text-foreground-0 text-xl pb-1 px-2 border-b-2 border-foreground-0 hover:opacity-80 transition-opacity'}>Create Account →</h3>
+                </Link>
             </div>
         </div>
 
