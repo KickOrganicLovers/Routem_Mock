@@ -22,7 +22,7 @@ export default function RouteCardBasic(props: Props) {
                 <div className="w-full flex flex-col gap-1">
                     <div className="flex items-center gap-2">
                         <img
-                            src={"/mockImages/userIcon_2.jpg"}
+                            src={"/Rootem_Mock/mockImages/userIcon_2.jpg"}
                             alt={`user icon`}
                             className="w-8 h-8 rounded-full object-cover bg-accent-0/10"
                         />

@@ -1,26 +1,41 @@
 import React from 'react'
 import { BiHash } from 'react-icons/bi'
-import {HiHeart} from 'react-icons/hi2'
-import {Route} from "@/lib/client/types";
+import { HiHeart, HiEye } from 'react-icons/hi2'
 
-export type Props = {
-  route: Route
+export type RouteMetricType = 'likes' | 'views'
+
+export type TopRoute = {
+  id: string
+  title: string
+  user: string
+  likesThisWeek: number
+  viewsThisWeek?: number
+  category: string
+  /** Background image for the route */
+  thumbnailImageSrc?: string
+}
+
+export type FeaturedRouteCardProps = {
+  route: TopRoute
+  metric?: RouteMetricType
   onClick?: () => void
 }
 
-export default function FeaturedRouteCard(props: Props) {
+export default function FeaturedRouteCard({ route, metric = 'likes', onClick }: FeaturedRouteCardProps) {
+  const value = metric === 'likes' ? route.likesThisWeek : (route.viewsThisWeek ?? 0)
+  const Icon = metric === 'likes' ? HiHeart : HiEye
 
   return (
     <button
-      onClick={props.onClick}
+      onClick={onClick}
       className="group relative w-full h-full rounded-2xl shadow-md hover:shadow-lg overflow-hidden"
-      aria-label={`Top route: ${props.route.title}`}
+      aria-label={`Top route: ${route.title}`}
     >
       {/* Background image */}
       <img
-        src={props.route.thumbnailImageSrc || '/mockImages/Kyoto.jpg'}
-        alt={`${props.route.title} background`}
-        className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 duration-300 ease-out"
+        src={route.thumbnailImageSrc || '/Rootem_Mock/mockImages/Kyoto.jpg'}
+        alt={`${route.title} background`}
+        className="absolute inset-0 w-full h-full object-cover"
       />
       {/* Black overlay */}
       <div className="absolute inset-0 bg-black/40" aria-hidden="true" />
@@ -37,14 +52,14 @@ export default function FeaturedRouteCard(props: Props) {
       <div className="w-full h-full absolute top-0 left-0 z-10 p-4">
         <div className="flex flex-col items-end absolute bottom-4 right-4 max-w-full">
           <p className="text-xl text-gray-300 font-bold flex items-center gap-2">
-            <HiHeart className="w-5 h-5" />
-            <span className="tabular-nums">{props.route.likesThisWeek}</span>
-            <span className="opacity-80">likes this week</span>
+            <Icon className="w-5 h-5" />
+            <span className="tabular-nums">{value.toLocaleString()}</span>
+            <span className="opacity-80">{metric} this week</span>
           </p>
           <div className="flex items-center gap-2">
             <div className="flex flex-col items-end">
-              <h3 className="md:text-4xl text-2xl text-white font-bold">{props.route.title}</h3>
-              <p className="text-sm text-gray-300">by @{props.route.user.name} ・ {props.route.category}</p>
+              <h3 className="text-4xl text-white font-bold">{route.title}</h3>
+              <p className="text-sm text-gray-300">by @{route.user} ・ {route.category}</p>
             </div>
           </div>
         </div>

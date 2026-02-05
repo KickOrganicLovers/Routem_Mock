@@ -1,39 +1,46 @@
-import RouteCardHorizontal from '@/app/_components/common/templates/routeCardHorizontal';
-import {Route} from "@/lib/client/types";
+import RouteCardHorizontal, { RouteCardProps } from '@/app/_components/common/templates/routeCardHorizontal';
 
+// Simple mock data for route cards (replace with API integration as needed)
+export const mockRoutes: RouteCardProps[] = [
+  { title: 'Kyoto Old Town Walk', user: 'taro', likes: 128, category: 'History', thumbnailSrc: '/Rootem_Mock/mockImages/Kyoto.jpg' },
+  { title: 'Okinawa Beach Hopping', user: 'hanako', likes: 256, category: 'Beach', thumbnailSrc: '/Rootem_Mock/mockImages/Okinawa.jpg' },
+  { title: 'Hokkaido Food Trip', user: 'satoshi', likes: 93, category: 'Food', thumbnailSrc: '/Rootem_Mock/mockImages/Hokkaido.jpg' },
+  { title: 'Tokyo Night Lights', user: 'emi', likes: 174, category: 'City', thumbnailSrc: '/Rootem_Mock/mockImages/Tokyo.jpg' },
+  { title: 'Nara Temple Circuit', user: 'ken', likes: 67, category: 'Culture', thumbnailSrc: '/Rootem_Mock/mockImages/Nara.jpg' },
+  { title: 'Mount Fuji Scenic Drive', user: 'yuki', likes: 201, category: 'Nature', thumbnailSrc: '/Rootem_Mock/mockImages/Fuji.jpg' },
+];
 
-type Props = {
-    routes: Route[]
+type RouteListProps = {
   focusedIndex: number;
   setFocusedIndex: (index: number) => void;
 };
 
-export default function RouteList(props: Props) {
+export default function RouteList({ focusedIndex, setFocusedIndex }: RouteListProps) {
   return (
     <div
-      className="flex w-[400px] h-full flex-col gap-3 backdrop-blur-xs overflow-y-scroll p-3"
+      className="flex w-[400px] h-full flex-col gap-3 backdrop-blur-xs overflow-y-scroll overscroll-contain p-3"
       tabIndex={0}
       role="region"
       aria-label="Route list"
-      onWheel={(e) => {
+      onWheelCapture={(e) => {
         // Keep scrolling within the list and prevent wheel from bubbling to underlying map
         e.stopPropagation();
       }}
-      onTouchMove={(e) => {
+      onTouchMoveCapture={(e) => {
         // Prevent touch scroll/pan from reaching the map beneath
         e.stopPropagation();
       }}
-      onKeyDown={(e) => {
+      onKeyDownCapture={(e) => {
         // Contain keyboard scroll events (Arrow keys, PageUp/Down, Space, etc.)
         e.stopPropagation();
       }}
     >
-      {props.routes.map((route, idx) => (
+      {mockRoutes.map((route, idx) => (
         <RouteCardHorizontal
-            key={idx}
-            route={route}
-            isFocused={idx === props.focusedIndex}
-            onClick={() => {props.setFocusedIndex(idx)}}
+          key={`${route.title}-${idx}`}
+          {...route}
+          isFocused={focusedIndex === idx}
+          onClick={() => setFocusedIndex(idx)}
         />
       ))}
     </div>

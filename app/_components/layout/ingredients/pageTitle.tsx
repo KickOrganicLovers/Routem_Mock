@@ -1,6 +1,9 @@
-import {useRouter} from "next/navigation";
+import Link from "next/link";
 
 export default function PageTitle() {
-  const router = useRouter()
-  return <h1 className={'text-3xl text-foreground-0 font-bold font-serif cursor-pointer'} onClick={() => router.push('/')}>Routem</h1>;
+  return (
+    <Link href="/" className={'text-3xl text-foreground-0 font-bold font-serif cursor-pointer hover:opacity-80 transition-opacity'}>
+      Rootem
+    </Link>
+  );
 }
